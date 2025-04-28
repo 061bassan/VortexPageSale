@@ -1,0 +1,145 @@
+/* === Reset Básico e Fontes === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #12141D;
+    color: #EAEAEA;
+    line-height: 1.7;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #12141D 0%, #1B1E2B 100%);
+    -webkit-font-smoothing: antialiased; /* Melhora renderização da fonte */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* === Variáveis de Cor === */
+:root {
+    --primary-accent: #6C63FF;
+    --primary-accent-darker: #574fde;
+    --primary-accent-rgb: 108, 99, 255;
+    --secondary-accent: #2EC4B6;
+    --secondary-accent-darker: #25a79d;
+    --dark-bg: #12141D;
+    --medium-bg: #1B1E2B;
+    --light-text: #EAEAEA;
+    --medium-text: #a8aebb;
+    --card-bg: #232738;
+    --border-light: rgba(234, 234, 234, 0.08);
+    --white-color: #fff;
+    --border-radius-std: 12px;
+}
+
+/* === Utilitários === */
+.container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 0 15px; }
+.section { padding: 80px 0; } /* Reduzido padding padrão ligeiramente */
+.section-title { font-size: 2.4rem; font-weight: 700; color: var(--primary-accent); text-align: center; margin-bottom: 20px; line-height: 1.3; }
+.section-intro { text-align: center; color: var(--medium-text); max-width: 650px; margin: 0 auto 50px auto; font-size: 1.05rem; /* Tamanho ajustado */ }
+
+/* === Cabeçalho === */
+.header { background-color: rgba(18, 20, 29, 0.85); padding: 15px 0; position: fixed; width: 100%; top: 0; left: 0; z-index: 1000; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-light); transition: background-color 0.3s ease, box-shadow 0.3s ease;}
+.header.scrolled { background-color: rgba(27, 30, 43, 0.95); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); }
+.header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--light-text); }
+.logo .logo-icon { color: var(--primary-accent); font-size: 1.8rem; transition: transform 0.5s ease; } /* Reduzido tamanho ícone */
+.header:hover .logo-icon { transform: rotate(360deg); }
+.logo h1 { font-size: 1.7rem; font-weight: 600; letter-spacing: -1px;} /* Reduzido tamanho fonte */
+/* Menu */
+.main-nav { display: flex; gap: 25px; } /* Reduzido gap */
+.main-nav a { color: var(--medium-text); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s ease, transform 0.2s ease; } /* Reduzido tamanho */
+.main-nav a:hover { color: var(--primary-accent); transform: translateY(-2px); }
+
+/* === Seção Hero === */
+.hero { padding-top: 140px; padding-bottom: 90px; text-align: center; background: linear-gradient(180deg, var(--dark-bg) 0%, #171a26 100%); min-height: 75vh; display: flex; align-items: center; justify-content: center; flex-direction: column;}
+.hero h2 { font-size: 3rem; font-weight: 700; margin-bottom: 25px; line-height: 1.25; color: var(--light-text); text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+.hero h2 br { display: block; }
+.hero .subtitle { font-size: 1.15rem; color: var(--medium-text); margin-bottom: 45px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.hero-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+/* Botões CTA */
+.cta-button { display: inline-flex; align-items: center; gap: 10px; background-color: var(--primary-accent); color: var(--white-color); padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; border: none; cursor: pointer; box-shadow: 0 6px 15px rgba(var(--primary-accent-rgb), 0.25); } /* Sombra mais suave */
+.cta-button:hover { background-color: var(--primary-accent-darker); transform: translateY(-4px) scale(1.02); box-shadow: 0 8px 20px rgba(var(--primary-accent-rgb), 0.35); }
+.cta-button i { font-size: 1.15em; } /* Tamanho do ícone ajustado */
+.cta-button.secondary-cta { background-color: transparent; border: 2px solid var(--primary-accent); color: var(--primary-accent); box-shadow: none; padding: 12px 28px;}
+.cta-button.secondary-cta:hover { background-color: rgba(var(--primary-accent-rgb), 0.1); color: var(--light-text); transform: translateY(-3px); box-shadow: none; }
+
+/* === Seção Sobre/Features === */
+#beneficios { background-color: var(--medium-bg); }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; align-items: stretch; }
+.feature-item { background-color: var(--card-bg); padding: 30px 25px; border-radius: var(--border-radius-std); border: 1px solid var(--border-light); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; border-left: 4px solid var(--primary-accent); display: flex; flex-direction: column; } /* Borda Esquerda menor */
+.feature-item:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); border-color: var(--primary-accent);}
+.feature-icon { font-size: 2.5rem; color: var(--primary-accent); margin-bottom: 20px; display: inline-block; }
+.feature-item h4 { font-size: 1.3rem; font-weight: 600; color: var(--light-text); margin-bottom: 12px; }
+.feature-item p { color: var(--medium-text); font-size: 0.95rem; flex-grow: 1; } /* Tamanho fonte texto */
+.feature-item strong { color: var(--secondary-accent); font-weight: 600;}
+
+/* === Seção Highlight (Stats) === */
+#resultados { background-color: var(--dark-bg); }
+.stats-container { display: flex; justify-content: space-evenly; align-items: stretch; flex-wrap: wrap; gap: 30px; /* Menor gap */ margin-top: 50px; background-color: var(--medium-bg); padding: 40px 25px; border-radius: var(--border-radius-std); border: 1px solid var(--border-light); }
+.stat-item { text-align: center; flex-basis: 200px; flex-grow: 1; display: flex; flex-direction: column; align-items: center; gap: 8px;}
+.stat-icon { font-size: 3rem; color: var(--primary-accent); margin-bottom: 10px; }
+.stat-number { display: block; font-size: 2.5rem; font-weight: 700; color: var(--light-text); line-height: 1.2; }
+.stat-label { display: block; color: var(--medium-text); font-size: 0.95rem; font-weight: 500; }
+.footnote { text-align: center; margin-top: 35px; font-size: 0.85rem; color: var(--medium-text); opacity: 0.8; }
+
+/* === Seção de Teste === */
+.teste-section { background-color: var(--primary-accent); color: var(--white-color); text-align: center;}
+.teste-section .section-title { color: var(--white-color); }
+.teste-section .section-intro { color: rgba(255, 255, 255, 0.9); max-width: 550px; /* Limitar largura */}
+.teste-section .footnote { color: rgba(255, 255, 255, 0.7); max-width: 450px; margin-left: auto; margin-right: auto; /* Centralizar footnote */ }
+.teste-button-container { margin-top: 35px; }
+.cta-button.teste-cta { background-color: var(--white-color); color: var(--primary-accent); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+.cta-button.teste-cta:hover { background-color: #f0f0f0; color: var(--primary-accent-darker); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); transform: translateY(-4px) scale(1.05); }
+.cta-button.teste-cta i { margin-right: 8px;}
+
+/* === Seção CTA Final (Contato) === */
+#contato { text-align: center; background-color: var(--medium-bg);}
+.cta-final h2 { font-size: 2.2rem; /* Reduzido */ font-weight: 600; margin-bottom: 15px; color: var(--light-text); }
+.cta-final p { font-size: 1.1rem; color: var(--medium-text); margin-bottom: 35px; max-width: 550px; margin-left: auto; margin-right: auto;}
+.cta-button.final-cta-btn { background-color: #25D366; box-shadow: 0 6px 18px rgba(37, 211, 102, 0.25); color: var(--white-color); font-size: 1.05rem; padding: 15px 35px; } /* Botão um pouco maior */
+.cta-button.final-cta-btn:hover { background-color: #1ebe57; box-shadow: 0 10px 22px rgba(37, 211, 102, 0.35); }
+.cta-button.final-cta-btn i { font-size: 1.3em; margin-right: 10px;} /* Mais espaço ícone */
+
+/* Botão Flutuante REMOVIDO */
+
+/* === Rodapé === */
+.footer { background-color: var(--dark-bg); color: var(--medium-text); padding: 30px 0; text-align: center; font-size: 0.85rem; /* Fonte menor */ border-top: 1px solid var(--border-light); }
+.footer .container { display: flex; flex-direction: column; align-items: center; gap: 5px; } /* Menor gap */
+.footer p { line-height: 1.6; margin-bottom: 0px; } /* Remove margem p */
+
+/* === Responsividade Final === */
+@media (max-width: 992px) {
+    .section-title { font-size: 2.1rem; } .hero h2 { font-size: 2.6rem; }
+    .main-nav { gap: 18px; } .main-nav a { font-size: 0.9rem;}
+    .features-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));}
+}
+@media (max-width: 768px) {
+    .section { padding: 60px 0; } .section-title { font-size: 1.9rem; }
+    .section-intro { font-size: 1rem; margin-bottom: 40px; padding: 0 5px;} /* Adiciona padding horizontal */
+    .header { padding: 12px 0;}
+    .header .container { justify-content: center;} .main-nav { display: none; }
+    .hero { min-height: auto; padding: 120px 0 80px 0;} /* Reduz min-height */
+    .hero h2 { font-size: 2.1rem; } .hero .subtitle { font-size: 1.05rem; margin-bottom: 40px;}
+    .hero-buttons { gap: 15px; }
+    .cta-button { width: 80%; max-width: 280px; justify-content: center; padding: 12px 20px; font-size: 0.95rem; }
+    .features-grid { grid-template-columns: 1fr; gap: 20px;}
+    .cta-final h2 {font-size: 1.9rem;}
+    .teste-section h3 { font-size: 1.9rem; }
+    .stat-number { font-size: 2.3rem; } .stat-label { font-size: 0.9rem; }
+}
+@media (max-width: 576px) {
+    .section-title { font-size: 1.7rem; margin-bottom: 15px;} .section { padding: 50px 0;}
+    .section-intro { font-size: 0.95rem; margin-bottom: 40px; }
+    .hero { padding: 100px 0 60px 0;} .hero h2 { font-size: 1.8rem; line-height: 1.3;}
+    .hero .subtitle { font-size: 1rem; }
+    .feature-item { padding: 25px 20px; } .feature-item h4 {font-size: 1.2rem;} .feature-item p { font-size: 0.9rem;} .feature-icon {font-size: 2.2rem;}
+    .stat-item { flex-basis: 100%; gap: 5px;} .stat-number { font-size: 2.1rem; } .stat-icon {font-size: 2.5rem; margin-bottom: 10px;}
+    .cta-button { padding: 12px 20px; font-size: 0.9rem;}
+    .cta-final h2 {font-size: 1.7rem;} .cta-final p {font-size: 0.95rem;}
+    .teste-section h3 { font-size: 1.7rem; } .teste-section p {font-size: 0.95rem;}
+    .footer p { font-size: 0.8rem;}
+}
+
+/* Animação Spinner */
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
